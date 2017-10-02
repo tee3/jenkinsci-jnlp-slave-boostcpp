@@ -5,7 +5,13 @@ LABEL maintainer="Thomas Brown <tabsoftwareconsulting@gmail.com>"
 # set user for modifying image
 USER root
 
+# @todo hack support for git-lfs into Alpine Linux
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+
 RUN apt-get -q -y update && apt-get -q -y install \
+    git \
+    git-lfs \
+    \
     clang \
     g++ \
     \
@@ -21,6 +27,9 @@ RUN apt-get -q -y update && apt-get -q -y install \
 
 # restore user
 USER jenkins
+
+# set up Git LFS
+RUN git lfs install
 
 # set up Boost.Build
 RUN echo > "${HOME}/user-config.jam"
