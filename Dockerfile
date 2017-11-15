@@ -14,6 +14,7 @@ RUN apt-get -q -y update && apt-get -q -y install \
     make \
     \
     doxygen \
+    graphviz \
     \
     libboost-all-dev \
     && rm -rf /var/lib/apt/lists/*
