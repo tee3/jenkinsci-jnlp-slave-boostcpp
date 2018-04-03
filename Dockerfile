@@ -1,4 +1,4 @@
-FROM jenkinsci/jnlp-slave
+FROM jenkins/jnlp-slave
 
 LABEL maintainer="Thomas Brown <tabsoftwareconsulting@gmail.com>"
 
